@@ -1,0 +1,7 @@
+frame.time_relative,wlan.da,wlan.fc.protected,wlan.fc.type,wlan.fc.subtype,wlan.fixed.reason_code,wlan.sa
+423.847834,88:66:a5:55:a2:d4,0,0,12,7.0,0c:9d:92:54:fe:34
+423.847889,N/A,0,1,13,N/A,N/A
+423.848047,0c:9d:92:54:fe:34,1,0,13,N/A,88:66:a5:55:a2:d4
+423.848069,N/A,0,1,13,N/A,N/A
+423.848398,88:66:a5:55:a2:d4,1,0,13,N/A,0c:9d:92:54:fe:34
+423.848455,N/A,0,1,13,N/A,N/A
