@@ -33,7 +33,7 @@ Please provide a concise and concrete response to this task.
     },
     {
         "name": "few-shot-test",
-        "prompt": """Example 1:
+         "prompt": """Example 1:
 frame.time_relative: 423.847834,
 wlan.da: 00:00:00:00:00:08,
 wlan.fc.protected: 0,
@@ -44,17 +44,15 @@ wlan.sa: 00:00:00:00:00:34,
 Label: UNICAST DEAUTHENTICATION ATTACK
 
 Task:
-Analyze the provided sequence of IEEE 802.11 network frames below and classify them into EXACTLY ONE of the following categories:
-- UNICAST DEAUTHENTICATION ATTACK
-- NORMAL TRAFFIC
+- Classify the provided network frame sequence into exactly ONE of the following categories: UNICAST DEAUTHENTICATION ATTACK or NORMAL TRAFFIC.
 
 Rules:
 1. Use only the data provided in the input sequence.
-2. Provide a short, few-sentences explanation of your reasoning.
-3. Specify the exact packet numbers where attack frames appear (if none, write "None").
-4. State your confidence level e.g. (High, Medium, Low).
+2. Provide a short, few-sentences explanation of your reasoning from the beginning till the end.
+3. Write how many Deauthentication Unicast attacks are present (if there are zero, explicitly write "0"). Specify the exact packet numbers where they appeared.
+4. State your confidence level in your analysis.
 
-Act as a cybersecurity analyst specialized in network intrusion detection (IEEE 802.11) and Wi-Fi enterprise networks.
+Act as an IEEE 802.11 security analyst.
 Please provide a concise and concrete response to this task.
 """
     },
@@ -89,114 +87,114 @@ Please provide a concise and concrete response to this task.
 ]
 
 testing_prompts = [
-#     {
-#         "name": "testing-prompt-test-1",
-#         "csv_file_name": "packets_1088022-1088027(6 packets).csv",
-#         "prompt": """You are an IEEE 802.11 security analyst.
-#
-# Observed facts:
-#
-# - There are 6 packets in this network sequence in total.
-# - Beacon frames from BSSID 0c:9d:92:54:fe:34 (3 frames)
-# - 1 deauthentication frames under few milliseconds
-# - Client is transparently forced to be off a network
-#
-# Known attacks:
-# 1. Deauthentication attack: Massive deauthentication frames causing disconnects
-# 2. Evil Twin: Rogue AP impersonates legitimate ESSID
-# 3. CSA spoofing: Forged Channel Switch Announcements
-#
-# Determine:
-# - Attack type
-# - Confidence
-# - Evidence
-#
-# Please provide a concise and concrete response to this task.
-# """
-#     },
-#     {
-#         "name": "testing-prompt-test-2",
-#         "csv_file_name": "packets_1100010-1100019(10 packets).csv",
-#         "prompt": """You are an IEEE 802.11 security analyst.
-#
-# Observed facts:
-#
-# - There are 10 packets in this network sequence in total.
-# - Beacon frames from BSSID 0c:9d:92:54:fe:34 (5 frames)
-# - 5 deauthentication frames under 1 second
-# - Source and destination MAC addresses are often swapped
-# - Clients are forced to be off a network repeatedly
-#
-# Known attacks:
-# 1. Deauthentication attack: Massive deauthentication frames causing disconnects
-# 2. Evil Twin: Rogue AP impersonates legitimate ESSID
-# 3. CSA spoofing: Forged Channel Switch Announcements
-#
-# Determine:
-# - Attack type
-# - Confidence
-# - Evidence
-#
-# Please provide a concise and concrete response to this task.
-# """
-#     },
+    {
+        "name": "testing-prompt-test-1",
+        "csv_file_name": "packets_1088022-1088027(6 packets).csv",
+        "prompt": """You are an IEEE 802.11 security analyst.
+
+Observed facts:
+
+- There are 6 packets in this network sequence in total
+- Management frames with BSSID address 0c:9d:92:54:fe:34 (3 frames)
+- 1 deauthentication frames under few milliseconds
+- Client is transparently forced to be off a network
+
+Known attacks:
+1. Deauthentication attack: Massive deauthentication frames causing disconnects
+2. Evil Twin: Rogue AP impersonates legitimate ESSID
+3. CSA spoofing: Forged Channel Switch Announcements
+
+Determine:
+- Attack type
+- Confidence
+- Evidence
+
+Please provide a concise and concrete response to this task.
+"""
+    },
+    {
+        "name": "testing-prompt-test-2",
+        "csv_file_name": "packets_1100010-1100019(10 packets).csv",
+        "prompt": """You are an IEEE 802.11 security analyst.
+
+Observed facts:
+
+- There are 10 packets in this network sequence in total
+- Management frames with BSSID address 0c:9d:92:54:fe:34 (5 frames)
+- 5 deauthentication frames under 1 second
+- Source and destination MAC addresses are often swapped
+- Clients are forced to be off a network repeatedly
+
+Known attacks:
+1. Deauthentication attack: Massive deauthentication frames causing disconnects
+2. Evil Twin: Rogue AP impersonates legitimate ESSID
+3. CSA spoofing: Forged Channel Switch Announcements
+
+Determine:
+- Attack type
+- Confidence
+- Evidence
+
+Please provide a concise and concrete response to this task.
+"""
+    },
     # {
     #     "name": "testing-prompt-test-3",
     #     "csv_file_name": "packets_1200075-1200084(10 packets).csv",
     #     "prompt": """""",
     # },
-#     {
-#         "name": "testing-prompt-test-3",
-#         "csv_file_name": "packets_1176999-1177098(100 packets).csv",
-#         "prompt": """You are an IEEE 802.11 security analyst.
-#
-# Observed facts:
-#
-# - There are 100 packets in this network sequence in total.
-# - Beacon frames from BSSID 0c:9d:92:54:fe:34 (50 frames)
-# - 46 deauthentication frames under 1 second
-# - Source and destination MAC addresses are often swapped
-# - Clients are forced to be off a network repeatedly
-#
-# Known attacks:
-# 1. Deauthentication attack: Massive deauthentication frames causing disconnects
-# 2. Evil Twin: Rogue AP impersonates legitimate ESSID
-# 3. CSA spoofing: Forged Channel Switch Announcements
-#
-# Determine:
-# - Attack type
-# - Confidence
-# - Evidence
-#
-# Please provide a concise and concrete response to this task.
-# """
-#     },
-#     {
-#         "name": "testing-prompt-test-4",
-#         "csv_file_name": "packets_1260999-1261998(1000 packets).csv",
-#         "prompt": """You are an IEEE 802.11 security analyst.
-#
-# Observed facts:
-#
-# - There are 1000 packets in this network sequence in total.
-# - Beacon frames from BSSID 0c:9d:92:54:fe:34
-# - 144 deauthentication frames in nearly 1 second
-# - Source and destination MAC addresses varies
-# - Clients are forced to disconnect repeatedly
-#
-# Known attacks:
-# 1. Deauthentication attack: Massive deauthentication frames causing disconnects
-# 2. Evil Twin: Rogue AP impersonates legitimate ESSID
-# 3. CSA spoofing: Forged Channel Switch Announcements
-#
-# Determine:
-# - Attack type
-# - Confidence
-# - Evidence
-#
-# Please provide a concise and concrete response to this task.
-# """
-#     },
+    {
+        "name": "testing-prompt-test-3",
+        "csv_file_name": "packets_1176999-1177098(100 packets).csv",
+        "prompt": """You are an IEEE 802.11 security analyst.
+
+Observed facts:
+
+- There are 100 packets in this network sequence in total
+- Management and Data frames with BSSID address 0c:9d:92:54:fe:34 (50 frames)
+- 46 deauthentication frames under 1 second
+- Source and destination MAC addresses are often swapped
+- Clients are forced to be off a network repeatedly
+
+Known attacks:
+1. Deauthentication attack: Massive deauthentication frames causing disconnects
+2. Evil Twin: Rogue AP impersonates legitimate ESSID
+3. CSA spoofing: Forged Channel Switch Announcements
+
+Determine:
+- Attack type
+- Confidence
+- Evidence
+
+Please provide a concise and concrete response to this task.
+"""
+    },
+    {
+        "name": "testing-prompt-test-4",
+        "csv_file_name": "packets_1260999-1261998(1000 packets).csv",
+        "prompt": """You are an IEEE 802.11 security analyst.
+
+Observed facts:
+
+- There are 1000 packets in this network sequence in total
+- Management and Data frames with BSSID address 0c:9d:92:54:fe:34 (336 frames)
+- 144 deauthentication frames in nearly 1 second
+- Source and destination MAC addresses are often swapped
+- Clients are forced to disconnect repeatedly
+
+Known attacks:
+1. Deauthentication attack: Massive deauthentication frames causing disconnects
+2. Evil Twin: Rogue AP impersonates legitimate ESSID
+3. CSA spoofing: Forged Channel Switch Announcements
+
+Determine:
+- Attack type
+- Confidence
+- Evidence
+
+Please provide a concise and concrete response to this task.
+"""
+    },
 ]
 
 CSV_TEST_FILES = [

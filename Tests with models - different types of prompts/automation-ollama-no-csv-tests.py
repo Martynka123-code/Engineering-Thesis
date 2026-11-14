@@ -5,7 +5,7 @@ from pathlib import Path
 import psutil
 import threading
 
-base_output_root = r"C:\Users\Martyna\Desktop\moje_rzeczy\STUDIA\inżynierka\Stare kody - kopie"
+base_output_root = r"C:\Users\Martyna\Desktop\moje_rzeczy\STUDIA\inżynierka\Final tests"
 
 model_temperature = 0.0
 # model_top_p = 0.9
@@ -41,213 +41,213 @@ unprotected_source_addresses={'0c:9d:92:54:fe:34': 1}
 protected_source_addresses={'88:66:a5:55:a2:d4': 1, '0c:9d:92:54:fe:34': 1}
 """
     },
-#     {
-#       "name": "testing-prompt_test-1088022-1088027(6 packets)",
-#       "prompt": """You are an IEEE 802.11 security analyst.
-#
-# Observed facts:
-#
-# - There are 6 packets in this network sequence in total.
-# - Beacon frames from BSSID 0c:9d:92:54:fe:34 (3 frames)
-# - 1 deauthentication frames under few milliseconds
-# - Client is transparently forced to be off a network
-#
-# Known attacks:
-# 1. Deauthentication attack: Massive deauthentication frames causing disconnects
-# 2. Evil Twin: Rogue AP impersonates legitimate ESSID
-# 3. CSA spoofing: Forged Channel Switch Announcements
-#
-# Determine:
-# - Attack type
-# - Confidence
-# - Evidence
-#
-# Please provide a concise and concrete response to this task.
-# """
-#     },
-#     {
-#         "name": "testing-prompt_test-1100010-1100019(10 packets)",
-#         "prompt": """You are an IEEE 802.11 security analyst.
-#
-# Observed facts:
-#
-# - There are 10 packets in this network sequence in total.
-# - Beacon frames from BSSID 0c:9d:92:54:fe:34 (5 frames)
-# - 5 deauthentication frames under 1 second
-# - Source and destination MAC addresses are often swapped
-# - Clients are forced to be off a network repeatedly
-#
-# Known attacks:
-# 1. Deauthentication attack: Massive deauthentication frames causing disconnects
-# 2. Evil Twin: Rogue AP impersonates legitimate ESSID
-# 3. CSA spoofing: Forged Channel Switch Announcements
-#
-# Determine:
-# - Attack type
-# - Confidence
-# - Evidence
-#
-# Please provide a concise and concrete response to this task.
-# """
-#     },
-#     {
-#         "name": "zero-shot_test-1100010-1100019(10 packets)",
-#         "prompt": """You are an IEEE 802.11 security analyst.
-# Task:
-#     - Classify the provided network frame sequence into exactly ONE of the following categories: UNICAST DEAUTHENTICATION ATTACK or NORMAL TRAFFIC.
-#
-# Rules:
-# 1. Use only data provided in the summary below.
-# 2. Provide a short, few-sentences explanation of your reasoning.
-# 3. Write how many Deauthentication Unicast attacks are present (if there are zero, explicitly write "0").
-# 4. State your confidence level in your analysis.
-#
-# Network flow summary:
-# duration=0.0127
-# packet_count=10
-# mgmt_packet_count=5
-# unprotected_mgmt_count=5
-# protected_mgmt_count=0
-# unprotected_mgmt_ratio=1.0
-# mgmt_subtypes=[12]
-# source_addresses={'0c:9d:92:54:fe:34': 3, '88:66:a5:55:a2:d4': 2}
-# destination_addresses={'88:66:a5:55:a2:d4': 3, '0c:9d:92:54:fe:34': 2}
-# bssid_address={'0c:9d:92:54:fe:34': 5}
-# unprotected_source_addresses={'0c:9d:92:54:fe:34': 3, '88:66:a5:55:a2:d4': 2}
-# protected_source_addresses={}
-# """
-#     },
-#     {
-#         "name": "zero-shot_test-1200075-1200084(10 packets)",
-#         "prompt": """You are an IEEE 802.11 security analyst.
-# Task:
-#     - Classify the provided network frame sequence into exactly ONE of the following categories: UNICAST DEAUTHENTICATION ATTACK or NORMAL TRAFFIC.
-#
-# Rules:
-# 1. Use only data provided in the summary below.
-# 2. Provide a short, few-sentences explanation of your reasoning.
-# 3. Write how many Deauthentication Unicast attacks are present (if there are zero, explicitly write "0").
-# 4. State your confidence level in your analysis.
-#
-# Network flow summary:
-# duration=0.0008
-# packet_count=10
-# mgmt_packet_count=0
-# unprotected_mgmt_count=0
-# protected_mgmt_count=0
-# unprotected_mgmt_ratio=0.0
-# mgmt_subtypes=[]
-# source_addresses={'0c:9d:92:54:fe:30': 4}
-# destination_addresses={'50:3e:aa:e3:1f:be': 2, '50:3e:aa:e4:01:93': 2}
-# bssid_address={'0c:9d:92:54:fe:34': 4}
-# unprotected_source_addresses={}
-# protected_source_addresses={}
-# """
-#     },
-#     {
-#         "name": "testing-prompt_test-1176999-1177098(100 packets)",
-#         "prompt": """You are an IEEE 802.11 security analyst.
-#
-# Observed facts:
-#
-# - There are 100 packets in this network sequence in total.
-# - Beacon frames from BSSID 0c:9d:92:54:fe:34 (50 frames)
-# - 46 deauthentication frames under 1 second
-# - Source and destination MAC addresses are often swapped
-# - Clients are forced to be off a network repeatedly
-#
-# Known attacks:
-# 1. Deauthentication attack: Massive deauthentication frames causing disconnects
-# 2. Evil Twin: Rogue AP impersonates legitimate ESSID
-# 3. CSA spoofing: Forged Channel Switch Announcements
-#
-# Determine:
-# - Attack type
-# - Confidence
-# - Evidence
-#
-# Please provide a concise and concrete response to this task.
-# """
-#     },
-#     {
-#         "name": "zero-shot_test-1176999-1177098(100 packets)",
-#         "prompt": """You are an IEEE 802.11 security analyst.
-# Task:
-#     - Classify the provided network frame sequence into exactly ONE of the following categories: UNICAST DEAUTHENTICATION ATTACK or NORMAL TRAFFIC.
-#
-# Rules:
-# 1. Use only data provided in the summary below.
-# 2. Provide a short, few-sentences explanation of your reasoning.
-# 3. Write how many Deauthentication Unicast attacks are present (if there are zero, explicitly write "0").
-# 4. State your confidence level in your analysis.
-#
-# Network flow summary:
-# duration=0.1179
-# packet_count=100
-# mgmt_packet_count=47
-# unprotected_mgmt_count=47
-# protected_mgmt_count=0
-# unprotected_mgmt_ratio=1.0
-# mgmt_subtypes=[8, 12]
-# source_addresses={'0c:9d:92:54:fe:30': 1, 'a4:b1:c1:91:4c:72': 24, '0c:9d:92:54:fe:34': 25}
-# destination_addresses={'24:f5:a2:ea:86:c3': 1, '0c:9d:92:54:fe:34': 24, 'a4:b1:c1:91:4c:72': 23, 'ff:ff:ff:ff:ff:ff': 1, '01:80:c2:00:00:00': 1}
-# bssid_address={'0c:9d:92:54:fe:34': 50}
-# unprotected_source_addresses={'a4:b1:c1:91:4c:72': 23, '0c:9d:92:54:fe:34': 24}
-# protected_source_addresses={}
-# """
-#     },
-#     {
-#         "name":"testing-prompt_test-1260999-1261998(1000 packets)",
-#         "prompt": """You are an IEEE 802.11 security analyst.
-#
-# Observed facts:
-#
-# - There are 1000 packets in this network sequence in total.
-# - Beacon frames from BSSID 0c:9d:92:54:fe:34
-# - 144 deauthentication frames in nearly 1 second
-# - Source and destination MAC addresses varies
-# - Clients are forced to disconnect repeatedly
-#
-# Known attacks:
-# 1. Deauthentication attack: Massive deauthentication frames causing disconnects
-# 2. Evil Twin: Rogue AP impersonates legitimate ESSID
-# 3. CSA spoofing: Forged Channel Switch Announcements
-#
-# Determine:
-# - Attack type
-# - Confidence
-# - Evidence
-#
-# Please provide a concise and concrete response to this task.
-# """
-#     },
-#     {
-#         "name": "zero-shot_test-1260999-1261998(1000 packets)",
-#         "prompt": """You are an IEEE 802.11 security analyst.
-# Task:
-#     - Classify the provided network frame sequence into exactly ONE of the following categories: UNICAST DEAUTHENTICATION ATTACK or NORMAL TRAFFIC.
-#
-# Rules:
-# 1. Use only data provided in the summary below.
-# 2. Provide a short, few-sentences explanation of your reasoning.
-# 3. Write how many Deauthentication Unicast attacks are present (if there are zero, explicitly write "0").
-# 4. State your confidence level in your analysis.
-#
-# Network flow summary:
-# duration=0.6352
-# packet_count=1000
-# mgmt_packet_count=156
-# unprotected_mgmt_count=153
-# protected_mgmt_count=3
-# unprotected_mgmt_ratio=0.98
-# mgmt_subtypes=[2, 3, 8, 11, 12, 13]
-# source_addresses={'94:e9:79:82:c5:77': 46, '0c:9d:92:54:fe:34': 80, '50:3e:aa:e3:1f:be': 74, '0c:9d:92:54:fe:30': 96, '74:d0:2b:7c:5a:5e': 17, '88:66:a5:55:a2:d4': 1, 'a4:b1:c1:91:4c:72': 10, '24:f5:a2:ea:86:c3': 1, '00:c0:ca:a8:26:3e': 5, 'a4:08:ea:2a:9a:01': 4, 'b4:ce:40:c8:33:81': 2}
-# destination_addresses={'0c:9d:92:54:fe:30': 16, '50:3e:aa:e3:1f:be': 70, '0c:9d:92:54:fe:34': 82, '94:e9:79:82:c5:77': 92, '24:f5:a2:ea:86:c3': 2, 'ff:ff:ff:ff:ff:ff': 5, 'a4:08:ea:2a:9a:01': 17, '01:00:5e:7f:ff:fa': 9, 'a4:b1:c1:91:4c:72': 2, '00:c0:ca:a8:26:3e': 4, '94:e9:79:82:c4:77': 1, '74:d0:2b:7c:5a:5e': 4, '33:33:00:00:00:02': 1}
-# bssid_address={'0c:9d:92:54:fe:34': 336}
-# unprotected_source_addresses={'0c:9d:92:54:fe:34': 77, '50:3e:aa:e3:1f:be': 74, '00:c0:ca:a8:26:3e': 2}
-# protected_source_addresses={'a4:b1:c1:91:4c:72': 1, '0c:9d:92:54:fe:34': 1, '00:c0:ca:a8:26:3e': 1}
-# """
-#     }
+    {
+      "name": "testing-prompt_test-1088022-1088027(6 packets)",
+      "prompt": """You are an IEEE 802.11 security analyst.
+
+Observed facts:
+
+- There are 6 packets in this network sequence in total
+- Management frames with BSSID address 0c:9d:92:54:fe:34 (3 frames)
+- 1 deauthentication frames under few milliseconds
+- Client is transparently forced to be off a network
+
+Known attacks:
+1. Deauthentication attack: Massive deauthentication frames causing disconnects
+2. Evil Twin: Rogue AP impersonates legitimate ESSID
+3. CSA spoofing: Forged Channel Switch Announcements
+
+Determine:
+- Attack type
+- Confidence
+- Evidence
+
+Please provide a concise and concrete response to this task.
+"""
+    },
+    {
+        "name": "testing-prompt_test-1100010-1100019(10 packets)",
+        "prompt": """You are an IEEE 802.11 security analyst.
+
+Observed facts:
+
+- There are 10 packets in this network sequence in total
+- Management frames with BSSID address 0c:9d:92:54:fe:34 (5 frames)
+- 5 deauthentication frames under 1 second
+- Source and destination MAC addresses are often swapped
+- Clients are forced to be off a network repeatedly
+
+Known attacks:
+1. Deauthentication attack: Massive deauthentication frames causing disconnects
+2. Evil Twin: Rogue AP impersonates legitimate ESSID
+3. CSA spoofing: Forged Channel Switch Announcements
+
+Determine:
+- Attack type
+- Confidence
+- Evidence
+
+Please provide a concise and concrete response to this task.
+"""
+    },
+    {
+        "name": "zero-shot_test-1100010-1100019(10 packets)",
+        "prompt": """You are an IEEE 802.11 security analyst.
+Task:
+    - Classify the provided network frame sequence into exactly ONE of the following categories: UNICAST DEAUTHENTICATION ATTACK or NORMAL TRAFFIC.
+
+Rules:
+1. Use only data provided in the summary below.
+2. Provide a short, few-sentences explanation of your reasoning.
+3. Write how many Deauthentication Unicast attacks are present (if there are zero, explicitly write "0").
+4. State your confidence level in your analysis.
+
+Network flow summary:
+duration=0.0127
+packet_count=10
+mgmt_packet_count=5
+unprotected_mgmt_count=5
+protected_mgmt_count=0
+unprotected_mgmt_ratio=1.0
+mgmt_subtypes=[12]
+source_addresses={'0c:9d:92:54:fe:34': 3, '88:66:a5:55:a2:d4': 2}
+destination_addresses={'88:66:a5:55:a2:d4': 3, '0c:9d:92:54:fe:34': 2}
+bssid_address={'0c:9d:92:54:fe:34': 5}
+unprotected_source_addresses={'0c:9d:92:54:fe:34': 3, '88:66:a5:55:a2:d4': 2}
+protected_source_addresses={}
+"""
+    },
+    {
+        "name": "zero-shot_test-1200075-1200084(10 packets)",
+        "prompt": """You are an IEEE 802.11 security analyst.
+Task:
+    - Classify the provided network frame sequence into exactly ONE of the following categories: UNICAST DEAUTHENTICATION ATTACK or NORMAL TRAFFIC.
+
+Rules:
+1. Use only data provided in the summary below.
+2. Provide a short, few-sentences explanation of your reasoning.
+3. Write how many Deauthentication Unicast attacks are present (if there are zero, explicitly write "0").
+4. State your confidence level in your analysis.
+
+Network flow summary:
+duration=0.0008
+packet_count=10
+mgmt_packet_count=0
+unprotected_mgmt_count=0
+protected_mgmt_count=0
+unprotected_mgmt_ratio=0.0
+mgmt_subtypes=[]
+source_addresses={'0c:9d:92:54:fe:30': 4}
+destination_addresses={'50:3e:aa:e3:1f:be': 2, '50:3e:aa:e4:01:93': 2}
+bssid_address={'0c:9d:92:54:fe:34': 4}
+unprotected_source_addresses={}
+protected_source_addresses={}
+"""
+    },
+    {
+        "name": "testing-prompt_test-1176999-1177098(100 packets)",
+        "prompt": """You are an IEEE 802.11 security analyst.
+
+Observed facts:
+
+- There are 100 packets in this network sequence in total
+- Management and Data frames with BSSID address 0c:9d:92:54:fe:34 (50 frames)
+- 46 deauthentication frames under 1 second
+- Source and destination MAC addresses are often swapped
+- Clients are forced to be off a network repeatedly
+
+Known attacks:
+1. Deauthentication attack: Massive deauthentication frames causing disconnects
+2. Evil Twin: Rogue AP impersonates legitimate ESSID
+3. CSA spoofing: Forged Channel Switch Announcements
+
+Determine:
+- Attack type
+- Confidence
+- Evidence
+
+Please provide a concise and concrete response to this task.
+"""
+    },
+    {
+        "name": "zero-shot_test-1176999-1177098(100 packets)",
+        "prompt": """You are an IEEE 802.11 security analyst.
+Task:
+    - Classify the provided network frame sequence into exactly ONE of the following categories: UNICAST DEAUTHENTICATION ATTACK or NORMAL TRAFFIC.
+
+Rules:
+1. Use only data provided in the summary below.
+2. Provide a short, few-sentences explanation of your reasoning.
+3. Write how many Deauthentication Unicast attacks are present (if there are zero, explicitly write "0").
+4. State your confidence level in your analysis.
+
+Network flow summary:
+duration=0.1179
+packet_count=100
+mgmt_packet_count=47
+unprotected_mgmt_count=47
+protected_mgmt_count=0
+unprotected_mgmt_ratio=1.0
+mgmt_subtypes=[8, 12]
+source_addresses={'0c:9d:92:54:fe:30': 1, 'a4:b1:c1:91:4c:72': 24, '0c:9d:92:54:fe:34': 25}
+destination_addresses={'24:f5:a2:ea:86:c3': 1, '0c:9d:92:54:fe:34': 24, 'a4:b1:c1:91:4c:72': 23, 'ff:ff:ff:ff:ff:ff': 1, '01:80:c2:00:00:00': 1}
+bssid_address={'0c:9d:92:54:fe:34': 50}
+unprotected_source_addresses={'a4:b1:c1:91:4c:72': 23, '0c:9d:92:54:fe:34': 24}
+protected_source_addresses={}
+"""
+    },
+    {
+        "name":"testing-prompt_test-1260999-1261998(1000 packets)",
+        "prompt": """You are an IEEE 802.11 security analyst.
+
+Observed facts:
+
+- There are 1000 packets in this network sequence in total
+- Management and Data frames with BSSID address 0c:9d:92:54:fe:34 (336 frames)
+- 144 deauthentication frames in nearly 1 second
+- Source and destination MAC addresses are often swapped
+- Clients are forced to disconnect repeatedly
+
+Known attacks:
+1. Deauthentication attack: Massive deauthentication frames causing disconnects
+2. Evil Twin: Rogue AP impersonates legitimate ESSID
+3. CSA spoofing: Forged Channel Switch Announcements
+
+Determine:
+- Attack type
+- Confidence
+- Evidence
+
+Please provide a concise and concrete response to this task.
+"""
+    },
+    {
+        "name": "zero-shot_test-1260999-1261998(1000 packets)",
+        "prompt": """You are an IEEE 802.11 security analyst.
+Task:
+    - Classify the provided network frame sequence into exactly ONE of the following categories: UNICAST DEAUTHENTICATION ATTACK or NORMAL TRAFFIC.
+
+Rules:
+1. Use only data provided in the summary below.
+2. Provide a short, few-sentences explanation of your reasoning.
+3. Write how many Deauthentication Unicast attacks are present (if there are zero, explicitly write "0").
+4. State your confidence level in your analysis.
+
+Network flow summary:
+duration=0.6352
+packet_count=1000
+mgmt_packet_count=156
+unprotected_mgmt_count=153
+protected_mgmt_count=3
+unprotected_mgmt_ratio=0.98
+mgmt_subtypes=[2, 3, 8, 11, 12, 13]
+source_addresses={'94:e9:79:82:c5:77': 46, '0c:9d:92:54:fe:34': 80, '50:3e:aa:e3:1f:be': 74, '0c:9d:92:54:fe:30': 96, '74:d0:2b:7c:5a:5e': 17, '88:66:a5:55:a2:d4': 1, 'a4:b1:c1:91:4c:72': 10, '24:f5:a2:ea:86:c3': 1, '00:c0:ca:a8:26:3e': 5, 'a4:08:ea:2a:9a:01': 4, 'b4:ce:40:c8:33:81': 2}
+destination_addresses={'0c:9d:92:54:fe:30': 16, '50:3e:aa:e3:1f:be': 70, '0c:9d:92:54:fe:34': 82, '94:e9:79:82:c5:77': 92, '24:f5:a2:ea:86:c3': 2, 'ff:ff:ff:ff:ff:ff': 5, 'a4:08:ea:2a:9a:01': 17, '01:00:5e:7f:ff:fa': 9, 'a4:b1:c1:91:4c:72': 2, '00:c0:ca:a8:26:3e': 4, '94:e9:79:82:c4:77': 1, '74:d0:2b:7c:5a:5e': 4, '33:33:00:00:00:02': 1}
+bssid_address={'0c:9d:92:54:fe:34': 336}
+unprotected_source_addresses={'0c:9d:92:54:fe:34': 77, '50:3e:aa:e3:1f:be': 74, '00:c0:ca:a8:26:3e': 2}
+protected_source_addresses={'a4:b1:c1:91:4c:72': 1, '0c:9d:92:54:fe:34': 1, '00:c0:ca:a8:26:3e': 1}
+"""
+    }
 ]
 
 MODELS_CONFIGURATION = [
